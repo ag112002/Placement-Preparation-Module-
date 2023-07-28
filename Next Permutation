@@ -1,0 +1,28 @@
+class Solution {
+public:
+    void nextPermutation(vector<int>& nums)
+    { 
+        int i=0,k=0,id1=0,id2=0;
+        for(i=nums.size()-2 ;i>=0 ;i--)
+        {
+           if(nums[i]<nums[i+1])
+           {    id1=i;
+                break;
+           }
+        } 
+
+          for(k=nums.size()-1 ;k>id1 ;k--)
+          {
+              if(nums[id1]<nums[k])
+              { id2=k;
+                  break;
+              }
+          }
+         swap(nums[id1],nums[id2]);
+         if(id1==0 && id2==0)
+         reverse(nums.begin(),nums.end());
+         else
+         reverse(nums.begin()+id1+1,nums.end());
+     
+    }
+};
