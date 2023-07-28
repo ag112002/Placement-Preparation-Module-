@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n=nums.size(),i;
+        
+       int dem[n];
+        for(i=0 ; i<n ; i++)
+            dem[i]=0;
+        
+        
+        for(int i=0; i<n; i++){
+            if(nums[i]>=0 && nums[i]<n)
+            dem[nums[i]]=1;
+        }
+        
+        for(i=0; i<n; i++){
+            if(dem[i]==0)
+                return i;
+        }
+         return n;
+        
+    }
+};
